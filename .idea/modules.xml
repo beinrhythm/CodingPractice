@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PracticeProblems/PracticeProblems.iml" filepath="$PROJECT_DIR$/PracticeProblems/PracticeProblems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProblemSolving/ProblemSolving.iml" filepath="$PROJECT_DIR$/../ProblemSolving/ProblemSolving.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ToDoList/ToDoList.iml" filepath="$PROJECT_DIR$/ToDoList/ToDoList.iml" />
+      <module fileurl="file://$USER_HOME$/projects/jersey-guice-app/jersey-guice-app.iml" filepath="$USER_HOME$/projects/jersey-guice-app/jersey-guice-app.iml" />
+      <module fileurl="file://$USER_HOME$/projects/angulardemorestful/ngdemo.iml" filepath="$USER_HOME$/projects/angulardemorestful/ngdemo.iml" />
+      <module fileurl="file://$USER_HOME$/projects/ontordb/ontordb.iml" filepath="$USER_HOME$/projects/ontordb/ontordb.iml" />
+    </modules>
+  </component>
+</project>
