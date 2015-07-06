@@ -22,19 +22,39 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jersey-guice-app" />
-        <module name="ngdemo" />
         <module name="ontordb" />
         <module name="PracticeProblems" />
         <module name="ProblemSolving" />
+      </profile>
+      <profile default="false" name="Annotation profile for ngdemo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ngdemo" />
+      </profile>
+      <profile default="false" name="Annotation profile for ToDoList" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="ToDoList" />
       </profile>
+      <profile default="false" name="Annotation profile for jersey-guice-app" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jersey-guice-app" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="jersey-guice-app" target="1.6" />
-      <module name="ngdemo" target="1.6" />
-      <module name="proactive" target="1.6" />
-      <module name="ToDoList" target="1.6" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="jersey-guice-app" target="1.7" />
+      <module name="ngdemo" target="1.7" />
+      <module name="ontordb" target="1.5" />
+      <module name="PracticeProblems" target="1.7" />
+      <module name="ProblemSolving" target="1.7" />
+      <module name="ToDoList" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

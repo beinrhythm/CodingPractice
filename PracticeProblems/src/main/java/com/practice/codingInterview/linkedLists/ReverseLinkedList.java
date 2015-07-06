@@ -1,6 +1,5 @@
 package com.practice.codingInterview.linkedLists;
 
-import jade.util.leap.LinkedList;
 
 import java.util.Arrays;
 

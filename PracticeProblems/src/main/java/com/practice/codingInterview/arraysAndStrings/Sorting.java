@@ -1,6 +1,5 @@
 package com.practice.codingInterview.arraysAndStrings;
 
-import sun.lwawt.LWComponentPeer;
 
 /**
  * Created by abhi.pandey on 12/17/14.
