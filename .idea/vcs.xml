@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../ProblemSolving" vcs="Git" />
+    <mapping directory="$USER_HOME$/projects/ElasticSearch" vcs="Git" />
     <mapping directory="$USER_HOME$/projects/angulardemorestful" vcs="Git" />
     <mapping directory="$USER_HOME$/projects/jersey-guice-app" vcs="Git" />
     <mapping directory="$USER_HOME$/projects/ontordb" vcs="Git" />

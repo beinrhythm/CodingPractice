@@ -32,6 +32,7 @@
     <file type="web" url="file://$PROJECT_DIR$/ToDoList" />
     <file type="web" url="file://$USER_HOME$/projects/angulardemorestful" />
     <file type="web" url="file://$USER_HOME$/projects/customer-success/csinsight" />
+    <file type="web" url="file://$USER_HOME$/projects/ElasticSearch" />
     <file type="web" url="file://$USER_HOME$/projects/jersey-guice-app" />
   </component>
   <component name="IdProvider" IDEtalkID="9396624D547B909082812AA35A51DB15" />
@@ -44,6 +45,7 @@
         <option value="$USER_HOME$/projects/angulardemorestful/pom.xml" />
         <option value="$USER_HOME$/projects/ontordb/pom.xml" />
         <option value="$PROJECT_DIR$/../ProblemSolving/pom.xml" />
+        <option value="$USER_HOME$/projects/ElasticSearch/pom.xml" />
       </list>
     </option>
   </component>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/projects/ElasticSearch/ElasticSearch.iml" filepath="$USER_HOME$/projects/ElasticSearch/ElasticSearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/PracticeProblems/PracticeProblems.iml" filepath="$PROJECT_DIR$/PracticeProblems/PracticeProblems.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ProblemSolving/ProblemSolving.iml" filepath="$PROJECT_DIR$/../ProblemSolving/ProblemSolving.iml" />
       <module fileurl="file://$PROJECT_DIR$/ToDoList/ToDoList.iml" filepath="$PROJECT_DIR$/ToDoList/ToDoList.iml" />

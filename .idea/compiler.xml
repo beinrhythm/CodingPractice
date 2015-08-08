@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="ElasticSearch" />
         <module name="ontordb" />
         <module name="PracticeProblems" />
         <module name="ProblemSolving" />
@@ -49,12 +50,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="jersey-guice-app" target="1.7" />
-      <module name="ngdemo" target="1.7" />
+      <module name="ElasticSearch" target="1.5" />
+      <module name="jersey-guice-app" target="1.6" />
+      <module name="ngdemo" target="1.6" />
       <module name="ontordb" target="1.5" />
-      <module name="PracticeProblems" target="1.7" />
-      <module name="ProblemSolving" target="1.7" />
-      <module name="ToDoList" target="1.7" />
+      <module name="PracticeProblems" target="1.5" />
+      <module name="ProblemSolving" target="1.5" />
+      <module name="ToDoList" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
