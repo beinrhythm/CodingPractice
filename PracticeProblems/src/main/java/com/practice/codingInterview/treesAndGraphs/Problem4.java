@@ -2,7 +2,6 @@ package com.practice.codingInterview.treesAndGraphs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -25,11 +24,11 @@ public class Problem4 {
                 if (node.data != -1) {
                     System.out.print(node.data);
                     list.add(node);
-                    if (node.left != null) {
-                        q.add(node.left);
+                    if (node.getLeft() != null) {
+                        q.add(node.getLeft());
                     }
-                    if (node.right != null) {
-                        q.add(node.right);
+                    if (node.getRight() != null) {
+                        q.add(node.getRight());
                     }
 
                 } else if (node.data.equals(special.data)) {
@@ -65,11 +64,11 @@ public class Problem4 {
             if (node != null) {
                 if (node.data != -1) {
                     System.out.print(node.data);
-                    if (node.left != null) {
-                        q.add(node.left);
+                    if (node.getLeft() != null) {
+                        q.add(node.getLeft());
                     }
-                    if (node.right != null) {
-                        q.add(node.right);
+                    if (node.getRight() != null) {
+                        q.add(node.getRight());
                     }
 
                 } else if (node.data.equals(special.data)) {
@@ -100,11 +99,11 @@ public class Problem4 {
                 if (node.data != -1) {
                 //    System.out.print(node.data);
                     list.add(node);
-                    if (node.left != null) {
-                        q.add(node.left);
+                    if (node.getLeft() != null) {
+                        q.add(node.getLeft());
                     }
-                    if (node.right != null) {
-                        q.add(node.right);
+                    if (node.getRight() != null) {
+                        q.add(node.getRight());
                     }
 
                 } else if (node.data.equals(special.data)) {

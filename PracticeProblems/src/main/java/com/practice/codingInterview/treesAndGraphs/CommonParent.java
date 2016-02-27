@@ -1,8 +1,6 @@
 package com.practice.codingInterview.treesAndGraphs;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
 
 /**
  * Created by abhi.pandey on 12/21/14.
@@ -11,13 +9,12 @@ public class CommonParent {
     ArrayList <BinaryTreeNode> path = new ArrayList<BinaryTreeNode>();
 
     public static BinaryTreeNode findCommonParent(BinaryTreeNode root , BinaryTreeNode node1, BinaryTreeNode node2){
-
-        if(findIn(root.left, node1) && findIn(root.left, node2)){
-            return findCommonParent(root.left, node1 , node2);
+        if(findIn(root.getLeft(), node1) && findIn(root.getLeft(), node2)){
+            return findCommonParent(root.getLeft(), node1 , node2);
         }
 
-        if(findIn(root.right, node1) && findIn(root.right, node2)){
-            return findCommonParent(root.right, node1 , node2);
+        if(findIn(root.getRight(), node1) && findIn(root.getRight(), node2)){
+            return findCommonParent(root.getRight(), node1 , node2);
         }
         return root;
     }
@@ -27,7 +24,7 @@ public class CommonParent {
         if(root.data == node.data) return true;
 
         else {
-            return findIn(root.left,node) || findIn(root.right,node);
+            return findIn(root.getLeft(),node) || findIn(root.getRight(),node);
         }
     }
 
@@ -37,10 +34,11 @@ public class CommonParent {
             return false;
         if (rootNode.data==key){
             path.add(rootNode);
+
             return true;
         }
-        boolean left_check = getPath( rootNode.left,key,path);
-        boolean right_check = getPath( rootNode.right,key,path);
+        boolean left_check = getPath( rootNode.getLeft(),key,path);
+        boolean right_check = getPath( rootNode.getRight(),key,path);
         if ( left_check || right_check){
             path.add(rootNode);
             return true;
@@ -48,8 +46,5 @@ public class CommonParent {
         return false;
 
     }
-
-
-
 
 }

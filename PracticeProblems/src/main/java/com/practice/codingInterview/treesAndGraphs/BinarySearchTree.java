@@ -21,10 +21,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         if (compare(data, p.data) > 0) {
-            p.right = insert(p.right, data);
+            p.setRight(insert(p.getRight(), data));
 
         } else {
-            p.left = insert(p.left, data);
+            p.setLeft(insert(p.getLeft(), data));
         }
         return p;
     }
@@ -34,45 +34,46 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
+
     private BinaryTreeNode delete(BinaryTreeNode<T> p, T data) {
         if (p == null) {
             throw new RuntimeException("cannot delete.");
         } else if (compare(data, p.data) > 0) {
-            p.right = delete(p.right, data);
+            p.setRight(delete(p.getRight(), data));
         } else if (compare(data, p.data) < 0) {
-            p.left = delete(p.left, data);
+            p.setLeft(delete(p.getLeft(), data));
         } else {
 
-            if (p.left == null) return p.right;
-            else if (p.right == null) return p.left;
-            else if (p.left == null && p.right == null) return p;
+            if (p.getLeft() == null) return p.getRight();
+            else if (p.getRight() == null) return p.getLeft();
+            else if (p.getLeft() == null && p.getRight() == null) return p;
             else {
                 //rotation
-                p.data = getData(p.left);
-                p.left = delete(p.left, p.data);
+                p.data = getData(p.getLeft());
+                p.setLeft(delete(p.getLeft(), p.data));
             }
         }
         return p;
     }
 
     private T getData(BinaryTreeNode<T> p) {
-        while (p.right != null) {
-            p = p.right;
+        while (p.getRight() != null) {
+            p = p.getRight();
         }
         return p.data;
     }
 
 
     public T findMax(BinaryTreeNode<T> node) {
-        while (node.right != null) {
-            node = node.right;
+        while (node.getRight() != null) {
+            node = node.getRight();
         }
         return node.data;
     }
 
     public T findMin(BinaryTreeNode<T> node) {
-        while (node.left != null) {
-            node = node.left;
+        while (node.getLeft() != null) {
+            node = node.getLeft();
         }
         return node.data;
     }
@@ -82,24 +83,24 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (node == null) return;
 
         System.out.println(node.data);
-        traversePreOrder(node.left);
-        traversePreOrder(node.right);
+        traversePreOrder(node.getLeft());
+        traversePreOrder(node.getRight());
 
     }
 
     public void traverseInOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
 
-        traverseInOrder(node.left);
+        traverseInOrder(node.getLeft());
         System.out.println(node.data);
-        traverseInOrder(node.right);
+        traverseInOrder(node.getRight());
     }
 
     private void traversePostOrder(BinaryTreeNode<T> node) {
         if (node == null) return;
 
-        traversePostOrder(node.right);
-        traversePostOrder(node.left);
+        traversePostOrder(node.getRight());
+        traversePostOrder(node.getLeft());
         System.out.println(node.data);
     }
 
@@ -107,7 +108,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (node == null) {
             return 0;
         }
-        return 1 + Math.min(MinDepth(node.left), MinDepth(node.right));
+        return 1 + Math.min(MinDepth(node.getLeft()), MinDepth(node.getRight()));
 
     }
 
@@ -115,7 +116,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (node == null) {
             return 0;
         }
-        return 1 + Math.max(MaxDepth(node.left), MaxDepth(node.right));
+        return 1 + Math.max(MaxDepth(node.getLeft()), MaxDepth(node.getRight()));
     }
 
     public boolean isBalanced(BinaryTreeNode root) {
@@ -125,10 +126,18 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
+    public BinaryTreeNode getRoot() {
+        return root;
+    }
+
     public static void main(String[] args) {
         Integer[] a = {5, 3, 4, 8, 7, 9, 6, 10, 2, 1};
+        Integer[] b = {6, 3, 2, 1};
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-        for (Integer n : a) bst.insert(n);
+        for (Integer n : b) bst.insert(n);
+        System.out.println(SecondLargestElementBST.find(bst.getRoot()).data);
+        //System.out.println(btm.getMaxHeight());
+        //System.out.println(BinaryTreeMaxHeight.getMaxHeightIterative(bst.root));
        /* System.out.println("InOrder");
         bst.traverseInOrder(bst.root);
         System.out.println("PreOrder");
@@ -145,7 +154,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         //   Problem4.printTreeLtoR(bst.root);
         //     Problem4.printTreeZigZag(bst.root);
 
-        System.out.println(Problem5.inorderSuccessor(bst.root.left.right).data);
+        //  System.out.println(Problem5.inorderSuccessor(bst.root.left.right).data);
 
 
     }

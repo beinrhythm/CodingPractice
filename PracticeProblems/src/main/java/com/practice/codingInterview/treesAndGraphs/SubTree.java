@@ -21,7 +21,7 @@ public class SubTree {
             if (matchTree(t1, t2)) return true;
         }
 
-        return subTree(t1.left, t2) || subTree(t1.right, t2);
+        return subTree(t1.getLeft(), t2) || subTree(t1.getRight(), t2);
     }
 
     private boolean matchTree(BinaryTreeNode t1, BinaryTreeNode t2) {
@@ -31,7 +31,7 @@ public class SubTree {
 
         if (t1.data != t2.data) return false;
 
-        else return matchTree(t1.left, t2.left) && matchTree(t1.right, t2.right);
+        else return matchTree(t1.getLeft(), t2.getLeft()) && matchTree(t1.getRight(), t2.getRight());
 
     }
 }

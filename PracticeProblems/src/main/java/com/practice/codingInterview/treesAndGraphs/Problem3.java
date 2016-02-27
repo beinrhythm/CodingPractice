@@ -12,8 +12,8 @@ public class Problem3 {
 
         int mid = (start+end)/2;
         BinaryTreeNode root = new BinaryTreeNode(insert[mid]);
-        root.left = add(insert, start, mid - 1);
-        root.right = add(insert , mid+1, end);
+        root.setLeft( add(insert, start, mid - 1));
+        root.setRight( add(insert , mid+1, end));
         return  root;
 
     }

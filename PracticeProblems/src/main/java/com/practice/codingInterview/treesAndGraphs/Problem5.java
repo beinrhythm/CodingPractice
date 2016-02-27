@@ -25,15 +25,15 @@ public class Problem5 {
             BinaryTreeNode result = null;
 
             //case 1 when successor is leftmost of right sub tree, example 5 and answer is 6
-            if(node.parent != null || node.right!= null){
-                result = leftMost(node.right);
+            if(node.getParent() != null || node.getRight()!= null){
+                result = leftMost(node.getRight());
             }
             else{
             // right subtree is empty
-                if(node.right == null){
-                    BinaryTreeNode parent = node.parent;
+                if(node.getRight() == null){
+                    BinaryTreeNode parent = node.getParent();
                     //case 2 when successor is parent, example 6 and answer is 7
-                    if(node == parent.left){
+                    if(node == parent.getLeft()){
                         result = parent;
                     }else{
                         // case 3 when successor is parent's successor, example 4 and answer is 5
@@ -50,8 +50,8 @@ public class Problem5 {
 
     private static BinaryTreeNode leftMost(BinaryTreeNode node) {
         if(node == null) return null;
-        while(node.left != null){
-            node = node.left;
+        while(node.getLeft() != null){
+            node = node.getLeft();
         }
         return node;
     }
