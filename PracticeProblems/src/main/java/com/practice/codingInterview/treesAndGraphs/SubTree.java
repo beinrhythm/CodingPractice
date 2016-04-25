@@ -8,30 +8,29 @@ package com.practice.codingInterview.treesAndGraphs;
  */
 public class SubTree {
 
-    public boolean isSubtree(BinaryTreeNode t1, BinaryTreeNode t2) {
-        if (t2 == null) {
-            return true;
-        } else return subTree(t1, t2);
+    public boolean isSubtree(BinaryTreeNode T1, BinaryTreeNode T2) {
+        if (T2 == null) return true;//Empty Subtree is accepted
+
+        if (T1 == null) return false; // If large tree is empty no need of continuing further
+
+      /*   return true if any of the following conditions is true-
+           1- Both T1 and T2 are same/equal trees
+           2- T2 is subtree of T1's left tree
+           3- T2 is subtree of T1's right tree
+        */
+        return isSameTree(T1, T2) || isSubtree(T1.getLeft(), T2) || isSubtree(T1.getRight(), T2);
     }
 
-    private boolean subTree(BinaryTreeNode t1, BinaryTreeNode t2) {
-        if (t1 == null) return false;
+    private boolean isSameTree(BinaryTreeNode T1, BinaryTreeNode T2) {
+        // nothing left in the subtree
+        if (T1 == null &&  T2 == null) return true;
 
-        if (t1.data == t2.data) {
-            if (matchTree(t1, t2)) return true;
-        }
+        // big tree empty & subtree still not found
+        if (T1 == null || T2 == null) return false;
 
-        return subTree(t1.getLeft(), t2) || subTree(t1.getRight(), t2);
-    }
+        // data doesn’t match
+        if (T1.getData() != T2.getData()) return false;
 
-    private boolean matchTree(BinaryTreeNode t1, BinaryTreeNode t2) {
-        if (t1 == null && t2 == null) return true;
-
-        if (t1 == null || t2 == null) return false;
-
-        if (t1.data != t2.data) return false;
-
-        else return matchTree(t1.getLeft(), t2.getLeft()) && matchTree(t1.getRight(), t2.getRight());
-
+        return isSameTree(T1.getLeft(), T2.getLeft()) && isSameTree(T1.getRight(), T2.getRight());
     }
 }

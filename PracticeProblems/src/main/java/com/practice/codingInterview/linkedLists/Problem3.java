@@ -1,7 +1,5 @@
 package com.practice.codingInterview.linkedLists;
 
-import javax.sound.midi.Soundbank;
-
 /**
  * Created by abhi.pandey on 11/30/14.
  */
@@ -28,7 +26,7 @@ public class Problem3 {
                 new LinkedListNode<Integer>(5, new LinkedListNode<Integer>(8,
                         new LinkedListNode<Integer>(7, new LinkedListNode<Integer>(6, new LinkedListNode<Integer>(4, null)
                         ))))));
-        LinkedListNode temp = head;
+        LinkedListNode<Integer> temp = head;
         while (temp != null && temp.data != 5) {
             temp = temp.next;
         }

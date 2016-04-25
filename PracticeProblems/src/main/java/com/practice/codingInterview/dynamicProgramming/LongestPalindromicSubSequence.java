@@ -28,40 +28,40 @@ public class LongestPalindromicSubSequence {
         return Math.max(findRecursive(arr, i + 1, j), findRecursive(arr, i, j - 1));
     }
 
-    private static int findDP(char[] p, int n) {
+    private static int findDP(char[] p) {
+        int n = p.length;
+        int i, j, cl;
+        int L[][] = new int[n][n];  // Create a table to store results of subproblems
 
-        int m[][] = new int[n][n];
 
-        int i, j, k, L, q;
+        // Strings of length 1 are palindrome of lentgh 1
+        for (i = 0; i < n; i++)
+            L[i][i] = 1;
 
-    /* m[i,j] = Minimum number of scalar multiplications needed to compute
-       the matrix A[i]A[i+1]...A[j] = A[i..j] where dimension of A[i] is
-       p[i-1] x p[i] */
-
-        // cost is zero when multiplying one matrix.
-        for (i = 1; i < n; i++)
-            m[i][i] = 0;
-
-        // L is chain length.
-        for (L = 2; L < n; L++) {
-            for (i = 1; i <= n - L + 1; i++) {
-                j = i + L - 1;
-                m[i][j] = Integer.MAX_VALUE;
-                for (k = i; k <= j - 1; k++) {
-                    // q = cost/scalar multiplications
-                    q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
-                    if (q < m[i][j])
-                        m[i][j] = q;
-                }
+        // Build the table. Note that the lower diagonal values of table are
+        // useless and not filled in the process. The values are filled in a
+        // manner similar to Matrix Chain Multiplication DP solution (See
+        // http://www.geeksforgeeks.org/archives/15553). cl is length of
+        // substring
+        for (cl = 2; cl <= n; cl++) {
+            for (i = 0; i < n - cl + 1; i++) {
+                j = i + cl - 1;
+                if (p[i] == p[j] && cl == 2)
+                    L[i][j] = 2;
+                else if (p[i] == p[j])
+                    L[i][j] = L[i + 1][j - 1] + 2;
+                else
+                    L[i][j] = Math.max(L[i][j - 1], L[i + 1][j]);
             }
         }
 
-        return m[1][n - 1];
+        return L[0][n - 1];
     }
 
 
     public static void main(String[] args) {
-        String s = "GEEKSFORGEEKS";
-        System.out.println(LongestPalindromicSubSequence.find(s));
+        String s = "41234565434444444";
+        System.out.println("Recursive - " + LongestPalindromicSubSequence.find(s));
+        System.out.println("Dynamic Programing - " + LongestPalindromicSubSequence.findDP(s.toCharArray()));
     }
 }

@@ -37,6 +37,7 @@ public class URLShorter {
 
     public static void main(String[] args) {
         int n = 56789;
+
         String url = URLfromID(n);
         System.out.println(url);
         System.out.println(URLtoID(url));

@@ -10,54 +10,60 @@ public class StringPermutations {
         permutation("", str);
     }
 
-     private static void permutation(String prefix, String str) {
+    private static void permutation(String prefix, String str) {
         int n = str.length();
 
-         if(n == 0) System.out.println(prefix);
+        if (n == 0) System.out.println(prefix);
 
-         else{
-             for(int i=0; i<n; i++)
-             permutation(prefix+ str.charAt(i) , str.substring(0,i) + str.substring(i+1, n));
-         }
-     }
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+        }
+    }
 
     public static void permutation2(String s) {
         perm2(s.toCharArray(), s.length());
     }
 
 
-   private static void perm2(char[] a, int n) {
-       if(n==1){
-           System.out.println(a);
-           return;
-       }
-
-       for(int i=0; i<n ;i++){
-           swap(a, i, n-1);
-           perm2(a, n-1);
-           swap(a, i, n-1);
-       }
-   }
-
-    public static ArrayList<String> getPerms(String s){
-        ArrayList<String> permutations = new ArrayList<>();
-        if(s==null){
-            return null;
+    private static void perm2(char[] array, int length) {
+        if (length == 1) {
+            System.out.println(array);
+            return;
         }
-        else if(s.length()==0){
+
+        for (int i = 0; i < length; i++) {
+            swap(array, i, length - 1);
+            perm2(array, length - 1);
+            swap(array, i, length - 1);
+        }
+    }
+
+    /*
+    For example, if our string is “abc”, we would do the following:
+    1 Let  first = “a” and let remainder = “bc”
+    2 Let list = permute(bc) = {“bc”, “cd”}
+    3 Push “a” into each location of “bc” (--> “abc”, “bac”, “bca”) and “cb” (--> “acb”, “cab”, “cba”)
+    4 Return our new list
+     */
+    public static ArrayList<String> getPerms(String s) {
+        ArrayList<String> permutations = new ArrayList<>();
+        if (s == null) {// error case
+            return null;
+        } else if (s.length() == 0) {// base case
             permutations.add("");
             return permutations;
         }
 
-        char first = s.charAt(0);
+        char first = s.charAt(0); // get the first character
 
         String remainder = s.substring(1);
 
         ArrayList<String> perms = getPerms(remainder);
 
         for (String perm : perms) {
-            for (int i = 0; i < perm.length(); i++) {
-                String temp = insert(perm, first, i);
+            for (int i = 0; i <= perm.length(); i++) {
+                String temp = new StringBuilder(perm).insert(i,first).toString();
                 permutations.add(temp);
             }
 
@@ -65,14 +71,6 @@ public class StringPermutations {
 
         return permutations;
     }
-
-    private static String insert(String str, char ch, int index) {
-        String firstPart = str.substring(0,index);
-        String lastPart = str.substring(index);
-
-        return firstPart+ch+lastPart;
-    }
-
 
     // swap the characters at indices i and j
     private static void swap(char[] a, int i, int j) {
@@ -83,7 +81,7 @@ public class StringPermutations {
     }
 
     public static void main(String[] args) {
-        String a = "abc";
-        StringPermutations.permutation2(a);
+        String a = "a   bc";
+        System.out.println(StringPermutations.getPerms(a));
     }
 }

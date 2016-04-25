@@ -8,6 +8,8 @@ public class BinaryTreeNode<T> {
     private BinaryTreeNode left;
     private BinaryTreeNode right;
     private BinaryTreeNode parent;
+    private int size;
+    T data;
 
     public BinaryTreeNode getParent() {
         return parent;
@@ -41,9 +43,15 @@ public class BinaryTreeNode<T> {
         this.data = data;
     }
 
-    T data;
+    public int getSize() {
+        return size;
+    }
 
-    BinaryTreeNode(T data) {
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public BinaryTreeNode(T data) {
 
         this.data = data;
     }

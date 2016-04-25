@@ -1,22 +1,18 @@
 package com.practice.codingInterview.linkedLists;
 
 
-import java.util.Arrays;
-
 /**
  * Created by abhi.pandey on 12/7/14.
  */
 public class ReverseLinkedList {
     public static LinkedListNode reverseIterative(LinkedListNode head) {
-        if(head == null){
+        if (head == null) {
             return head;
-        }
-
-        else{
+        } else {
             LinkedListNode current = head;
             LinkedListNode prev = null;
 
-            while(current!=null){
+            while (current != null) {
                 LinkedListNode temp = current.next;
                 current.next = prev;
                 prev = current;
@@ -30,26 +26,19 @@ public class ReverseLinkedList {
     }
 
     public static LinkedListNode reverseRecursive(LinkedListNode head) {
-        if (head == null) {
-            return null;
-        }
-        if (head.next == null) {
-            return head;
+        if (head == null) return null;
 
-        }
-        else{
+        if (head.next == null) return head;
+
+        else {
             LinkedListNode first = head;
             LinkedListNode rest = head.next;
             first.next = null;
 
             LinkedListNode temp = reverseRecursive(rest);
-
             rest.next = first;
             return temp;
         }
-
-
-
     }
 
     public static void main(String[] args) {

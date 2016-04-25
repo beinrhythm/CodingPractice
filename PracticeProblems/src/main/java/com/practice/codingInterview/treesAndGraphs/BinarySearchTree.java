@@ -49,7 +49,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
             else if (p.getLeft() == null && p.getRight() == null) return p;
             else {
                 //rotation
-                p.data = getData(p.getLeft());
+                p.setData((T) getData(p.getLeft()));
                 p.setLeft(delete(p.getLeft(), p.data));
             }
         }

@@ -64,7 +64,7 @@ public class TST<T extends Comparable<T>> {
                 return p.left;
             } else {
                 //rotation
-                p.data = getData(p.left);
+                p.data = (T) getData(p.left);
                 p.left = delete(p.left, p.data);
             }
         }

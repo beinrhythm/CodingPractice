@@ -5,22 +5,16 @@ import java.util.Random;
 /**
  * Created by abhi.pandey on 12/24/14.
  */
-public class Shuffle {
+public  class Shuffle {
 
     public int[] shuffle(int[] input){
         if(input.length <=1 ) return null;
 
         int length = input.length;
-
-        int max = length-1;
-        int min = 0;
-
         Random rand = new Random();
         int random;
-
         for(int i = 0 ; i< length-1 ; i++){
             random = rand.nextInt(length);
-
             int temp = input[random] ;
             input[random]=  input[i];
             input[i] = temp;

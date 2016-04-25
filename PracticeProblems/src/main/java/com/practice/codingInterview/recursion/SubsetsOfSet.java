@@ -1,13 +1,14 @@
 package com.practice.codingInterview.recursion;
 
+import org.apache.commons.lang.ArrayUtils;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by abhi.pandey on 12/30/14.
  */
-public class SubsetsOfSet {
+public class SubsetsOfSet<T> {
     static void PrintSubsets(int[] source) {
         int length = source.length;
         int currentSubset = (int) Math.pow(2, source.length) - 1;
@@ -24,24 +25,6 @@ public class SubsetsOfSet {
             currentSubset--;
         }
     }
-
-    public static ArrayList<ArrayList<Integer>> getSubSets(List<Integer> set) {
-
-        ArrayList<ArrayList<Integer>> allSubSets = new ArrayList<>();
-        allSubSets.add(new ArrayList<Integer>());
-        for (int i = 0; i < set.size(); i++) {
-            int curSize = allSubSets.size();
-            for (int j = 0; j < curSize; j++) {
-                ArrayList<Integer> cur = new ArrayList<>(allSubSets.get(j));
-                cur.add(set.get(i));
-                allSubSets.add(cur);
-            }
-        }
-
-
-        return allSubSets;
-    }
-
 
     static ArrayList<ArrayList<Integer>> getSubsets(List<Integer> set, int index) {
         ArrayList<ArrayList<Integer>> allsubsets;
@@ -63,19 +46,44 @@ public class SubsetsOfSet {
         return allsubsets;
     }
 
+    public ArrayList<ArrayList<T>> getSubSets(T[] set) {
+        ArrayList<ArrayList<T>> result = new ArrayList<>();
+
+        ArrayList<T> emptySet = new ArrayList<T>();
+        result.add(emptySet);
+
+        for (T element : set) {
+            int curSize = result.size();
+            for (int i = 0; i < curSize; i++) {
+                ArrayList<T> current = new ArrayList<>(result.get(i));
+                current.add(element);
+                result.add(current);
+            }
+
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         Integer[] source = {1, 2, 3};
         int[] source1 = {1, 2, 3};
-        //   SubsetsOfSet.PrintSubsets(source1);
-        ArrayList<ArrayList<Integer>> results = SubsetsOfSet.getSubSets(Arrays.asList(source));
-        for (List<Integer> a : results) {
-            for (int b : a) {
+        String sample = "abc";
+        //    SubsetsOfSet.PrintSubsets(source1);
+        ArrayList<ArrayList> results = new SubsetsOfSet().getSubSets(source);
+        printResults(results);
+        results = new SubsetsOfSet().getSubSets(ArrayUtils.toObject(sample.toCharArray()));
+        printResults(results);
+
+
+    }
+
+    private static void printResults(ArrayList<ArrayList> results) {
+        for (List a : results) {
+            for (Object b : a) {
                 System.out.print(b);
             }
             System.out.println();
         }
-
-
     }
 }

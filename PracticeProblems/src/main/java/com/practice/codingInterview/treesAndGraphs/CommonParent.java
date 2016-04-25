@@ -28,7 +28,7 @@ public class CommonParent {
         }
     }
 
-    static boolean getPath(BinaryTreeNode rootNode, char key, ArrayList<BinaryTreeNode> path ){
+    static boolean getPath(BinaryTreeNode<Integer> rootNode, char key, ArrayList<BinaryTreeNode> path ){
         //return true if the node is found
         if( rootNode==null)
             return false;
