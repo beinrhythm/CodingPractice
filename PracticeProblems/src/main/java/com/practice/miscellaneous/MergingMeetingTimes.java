@@ -53,13 +53,13 @@ public class MergingMeetingTimes {
             Collections.sort(meetings);
             Meeting first = meetings.get(0);
             for (int i = 1; i < meetings.size(); i++) {
-                Meeting second = meetings.get(i);
-                if (first.getEndTime() >= second.getStartTime()) {
-                    first.setEndTime(Math.max(first.getEndTime(), second.getEndTime()));
+                Meeting next = meetings.get(i);
+                if (first.getEndTime() >= next.getStartTime()) {
+                    first.setEndTime(Math.max(first.getEndTime(), next.getEndTime()));
 
                 } else {
                     mergedMeetings.add(first);
-                    first = second;
+                    first = next;
                 }
             }
             mergedMeetings.add(first);

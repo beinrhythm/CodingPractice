@@ -10,7 +10,7 @@ package com.practice.companies.facebook;
  */
 public class MoveZerosToEnd {
     public static void main(String[] args) {
-      
+
         int arr[] = {1, 2, 0, 4, 0, 0, 8};
         System.out.print("Input = ");
         for (int i = 0; i < arr.length; i++) {
@@ -29,16 +29,19 @@ public class MoveZerosToEnd {
     public static void convert(int[] a) {
         int zCount = 0;
         int j = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] != 0) {
-                a[j++] = a[i];
-            } else {
+        int i = 0;
+        while (i < a.length && j < a.length) {
+            if(a[j] != 0){
+                a[i] = a[j];
+                i++;j++;
+            }else{
                 zCount++;
+                j++;
             }
         }
 
         while (zCount > 0) {
-            a[j++] = 0;
+            a[i++] = 0;
             zCount--;
         }
 

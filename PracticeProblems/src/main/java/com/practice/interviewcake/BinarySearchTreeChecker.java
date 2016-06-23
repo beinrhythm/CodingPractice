@@ -1,9 +1,12 @@
-package com.practice.codingInterview.treesAndGraphs;
+package com.practice.interviewcake;
+
+import com.practice.codingInterview.treesAndGraphs.BinarySearchTree;
+import com.practice.codingInterview.treesAndGraphs.BinaryTreeNode;
 
 /**
  * Created by abhi.pandey on 3/3/16.
  */
-public class ValidBST {
+public class BinarySearchTreeChecker {
 
     public static void main(String[] args) {
         Integer[] a = {5, 3, 4, 8, 7, 9, 6, 10, 2, 1};

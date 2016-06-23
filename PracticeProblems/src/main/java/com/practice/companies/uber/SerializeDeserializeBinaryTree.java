@@ -48,6 +48,7 @@ public class SerializeDeserializeBinaryTree {
         return root;
     }
 
+    //Use BFS
     public String serializeIterative(BinaryTreeNode root) {
         StringBuilder sb = new StringBuilder();
         if (root == null) {
@@ -57,12 +58,13 @@ public class SerializeDeserializeBinaryTree {
         q.add(root);
         while (!q.isEmpty()) {
             BinaryTreeNode node = q.remove();
-            if (node != null) {
+            if (node == null) {
+                sb.append("#");
+            } else {
                 sb.append(node.getData());
                 q.add(node.getLeft());
                 q.add(node.getRight());
-            } else {
-                sb.append("#");
+
             }
         }
         return sb.toString();

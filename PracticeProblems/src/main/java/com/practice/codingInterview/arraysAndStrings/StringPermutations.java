@@ -38,11 +38,17 @@ public class StringPermutations {
             swap(array, i, length - 1);
         }
     }
-
+    // swap the characters at indices i and j
+    private static void swap(char[] a, int i, int j) {
+        char c;
+        c = a[i];
+        a[i] = a[j];
+        a[j] = c;
+    }
     /*
     For example, if our string is “abc”, we would do the following:
     1 Let  first = “a” and let remainder = “bc”
-    2 Let list = permute(bc) = {“bc”, “cd”}
+    2 Let list = permute(bc) = {“bc”, “cb”}
     3 Push “a” into each location of “bc” (--> “abc”, “bac”, “bca”) and “cb” (--> “acb”, “cab”, “cba”)
     4 Return our new list
      */
@@ -66,22 +72,14 @@ public class StringPermutations {
                 String temp = new StringBuilder(perm).insert(i,first).toString();
                 permutations.add(temp);
             }
-
         }
-
         return permutations;
     }
 
-    // swap the characters at indices i and j
-    private static void swap(char[] a, int i, int j) {
-        char c;
-        c = a[i];
-        a[i] = a[j];
-        a[j] = c;
-    }
+
 
     public static void main(String[] args) {
-        String a = "a   bc";
+        String a = "abc";
         System.out.println(StringPermutations.getPerms(a));
     }
 }

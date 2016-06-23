@@ -1,4 +1,4 @@
-package com.practice.miscellaneous;
+package com.practice.interviewcake;
 
 import com.practice.codingInterview.treesAndGraphs.BinarySearchTree;
 import com.practice.codingInterview.treesAndGraphs.BinaryTreeNode;

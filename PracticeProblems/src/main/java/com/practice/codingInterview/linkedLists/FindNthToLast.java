@@ -3,7 +3,7 @@ package com.practice.codingInterview.linkedLists;
 /**
  * Created by abhi.pandey on 11/30/14.
  */
-public class Problem2 {
+public class FindNthToLast {
     /**
      * Implement an algorithm to find the nth to last element of a singly linked list.
      * @param head

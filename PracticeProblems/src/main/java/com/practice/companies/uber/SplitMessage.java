@@ -7,27 +7,42 @@ import java.util.ArrayList;
  */
 public class SplitMessage {
     private static ArrayList<String> GetChunks(String message, int messageLimit) throws Exception {
-        ArrayList<String> result = new ArrayList();
-        int mbX = 0, mbY = -1;
-        do {
-            mbX = mbY + 1;
-            mbY = mbX + messageLimit;
-            while (mbY >= mbX && mbY < message.length() && message.charAt(mbY--) != ' ') ;
-            if (mbY < mbX) throw new Exception("Cannot chunk.");
-            if (mbY >= message.length()) mbY = message.length();
-            result.add(message.substring(mbX, mbY - mbX));
-        } while (mbY >= message.length() - 1);
+        ArrayList<String> result = new ArrayList<>();
+        String[] listOfTotalWords = getListOfWords(message);
+        StringBuilder sb = new StringBuilder();
+        int bufferLimit = messageLimit;
+        for (int i = 0; i < listOfTotalWords.length; i++) {
+            String currentWord = listOfTotalWords[i];
+            sb.append(currentWord).append(" ");
+            bufferLimit = bufferLimit - currentWord.length() - 1;
+
+            if (i + 1 < listOfTotalWords.length) {
+                String nextWord = listOfTotalWords[i + 1];
+                if (bufferLimit < nextWord.length()) {
+                    result.add(sb.toString());
+                    bufferLimit = messageLimit;
+                    sb = new StringBuilder();
+                }
+            }
+        }
+        result.add(sb.toString());
         return result;
+    }
+
+    private static String[] getListOfWords(String message) {
+
+        String[] listOfWords = message.split(" ");
+
+        return listOfWords;
     }
 
     public static void main(String[] args) throws Exception {
         String message;
-        int charLmit;
-        message = "Hi Srinivas, your Uber is arriving now! And this is a bigger text";
-        charLmit = 25;
+        message = "Hi Sivasrinivas, your Uber is arriving now! And this is a bigger text";
+        int charLmit = 25;
         ArrayList<String> result = GetChunks(message, charLmit);
-        for(String item : result) {
-            System.out.println("Length = " + item.length() + " : " +item  );
+        for (String item : result) {
+            System.out.println("Length = " + item.length() + " : " + item);
         }
         System.out.println(result.toString());
     }

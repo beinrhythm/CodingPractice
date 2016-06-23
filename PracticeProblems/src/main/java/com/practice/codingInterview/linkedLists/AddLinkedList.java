@@ -3,7 +3,7 @@ package com.practice.codingInterview.linkedLists;
 /**
  * Created by abhi.pandey on 11/30/14.
  */
-public class Problem4 {
+public class AddLinkedList {
     public static LinkedListNode addList(LinkedListNode<Integer> node1, LinkedListNode<Integer> node2) {
 
         if(node1 == null || node2 == null){
@@ -51,7 +51,7 @@ public class Problem4 {
         LinkedListNode<Integer> node2 = new LinkedListNode<Integer>(5, new LinkedListNode<Integer>(5,
                 new LinkedListNode<Integer>(5, null)
         ));
-        Problem4.addList(node1, node2);
+        AddLinkedList.addList(node1, node2);
     }
 
 }

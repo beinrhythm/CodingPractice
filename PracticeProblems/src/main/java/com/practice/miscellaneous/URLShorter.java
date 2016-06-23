@@ -40,7 +40,7 @@ public class URLShorter {
 
         String url = URLfromID(n);
         System.out.println(url);
-        System.out.println(URLtoID(url));
+        System.out.println(URLtoID("123"));
     }
 
 }

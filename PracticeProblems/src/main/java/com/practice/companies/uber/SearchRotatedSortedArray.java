@@ -1,4 +1,4 @@
-package com.practice.codingInterview.SortingAndSearching;
+package com.practice.companies.uber;
 
 /**
  * http://articles.leetcode.com/searching-element-in-rotated-array/

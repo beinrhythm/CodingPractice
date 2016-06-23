@@ -41,5 +41,26 @@ public class NextGreaterElement {
         return output;
     }
 
+    private static void computeGreaterElements(int[] input) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(input[0]);
+        for (int i = 1; i < input.length ; i++) {
+
+            if (stack.peek() != null) {
+                while (true) {
+                    if (stack.isEmpty() || stack.peek() > input[i]) {
+                        break;
+                    }
+                    int temp = stack.pop();
+                    System.out.println("for " + temp + " greater element = " + input[i]);
+                }
+            }
+            stack.push(input[i]);
+
+        }
+    }
+
 }
 

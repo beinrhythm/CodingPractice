@@ -23,7 +23,7 @@ public class BinaryTreeRunner {
         String serialize = sdbt.serializeIterative(root);
         System.out.println(serialize);
         BinaryTreeNode<Integer> resultTree = sdbt.deSerializeIterative(serialize);
-        serialize = sdbt.serializeIterative(resultTree);
+        serialize = sdbt.serialize(resultTree);
         System.out.println(serialize);
     }
 }

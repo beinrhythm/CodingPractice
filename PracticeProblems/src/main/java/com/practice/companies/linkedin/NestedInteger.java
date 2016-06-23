@@ -1,6 +1,8 @@
 package com.practice.companies.linkedin;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Given a nested list of integers, returns the sum of all integers in the list weighted by their depth
@@ -83,6 +85,36 @@ class NestedIntegerSolution {
         return depth + 1;
     }
 
+    //https://leetcode.com/discuss/96316/simple-java-solution-using-a-stack-with-explanation
+    class NestedIterator implements Iterator<Integer> {
+        Stack<NestedInteger> stack = new Stack<>();
+        public NestedIterator(List<NestedInteger> nestedList) {
+            for(int i = nestedList.size() - 1; i >= 0; i--) {
+                stack.push(nestedList.get(i));
+            }
+        }
 
+        @Override
+        public Integer next() {
+            return stack.pop().getInteger();
+        }
+
+        @Override
+        public boolean hasNext() {
+            while(!stack.isEmpty()) {
+                NestedInteger curr = stack.peek();
+                if(curr.isInteger()) {
+                    return true;
+                }
+                stack.pop();
+                for(int i = curr.getList().size() - 1; i >= 0; i--) {
+                    stack.push(curr.getList().get(i));
+                }
+            }
+            return false;
+        }
+    }
 }
+
+
 

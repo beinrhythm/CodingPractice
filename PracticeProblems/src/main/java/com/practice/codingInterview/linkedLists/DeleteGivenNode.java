@@ -3,7 +3,7 @@ package com.practice.codingInterview.linkedLists;
 /**
  * Created by abhi.pandey on 11/30/14.
  */
-public class Problem3 {
+public class DeleteGivenNode {
     /**
      * Implement an algorithm to delete a node in the middle of a single linked list,
      * given only access to that node.

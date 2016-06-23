@@ -1,5 +1,7 @@
 package com.practice.codingInterview.treesAndGraphs;
 
+import com.practice.interviewcake.SecondLargestElementBST;
+
 /**
  * Created by abhi.pandey on 12/7/14.
  */
@@ -131,10 +133,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {5, 3, 4, 8, 7, 9, 6, 10, 2, 1};
+        Integer[] a = {5, 3, 4,  7, 10, 6, 8, 9, 1};
         Integer[] b = {6, 3, 2, 1};
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-        for (Integer n : b) bst.insert(n);
+        for (Integer n : a) bst.insert(n);
         System.out.println(SecondLargestElementBST.find(bst.getRoot()).data);
         //System.out.println(btm.getMaxHeight());
         //System.out.println(BinaryTreeMaxHeight.getMaxHeightIterative(bst.root));

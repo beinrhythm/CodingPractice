@@ -1,6 +1,6 @@
 package com.practice.codingInterview.arraysAndStrings;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Created by abhi.pandey on 11/24/14.
@@ -9,6 +9,7 @@ public class Anagrams {
 
     /**
      * Write a method to decide if two strings are anagrams or not.
+     *
      * @param text1
      * @param text2
      * @return true or false
@@ -31,6 +32,49 @@ public class Anagrams {
         Arrays.sort(text1Array);
         Arrays.sort(text2Array);
         return (Arrays.equals(text1Array, text2Array));
+    }
+
+    public List<List<String>> groupAnagrams(List<String> words) {
+        List<List<String>> result = new ArrayList<List<String>>();
+
+        if (words == null || words.size() == 0) {
+            return result;
+        }
+
+        HashMap<String, ArrayList<String>> map = new HashMap<>();
+
+        for (String word : words) {
+            char[] arr = word.toCharArray();
+            Arrays.sort(arr);
+
+            String temp = String.valueOf(arr);
+
+            if(!map.containsKey(temp)){
+                ArrayList<String> listOfAnagrams = new ArrayList<>();
+                listOfAnagrams.add(word);
+                map.put(temp, listOfAnagrams);
+            }
+                map.get(temp).add(word);
+
+            /*if (map.containsKey(temp)) {
+                ArrayList<String> tempList = map.get(temp);
+                tempList.add(word);
+                map.put(temp, tempList);
+
+            } else {
+
+                ArrayList<String> listOfAnagrams = new ArrayList<>();
+                listOfAnagrams.add(word);
+                map.put(temp, listOfAnagrams);
+            }*/
+        }
+
+        Iterator iter = map.values().iterator();
+        while (iter.hasNext()) {
+            ArrayList<String> items = (ArrayList<String>) iter.next();
+            result.add(items);
+        }
+        return result;
     }
 
     public static void main(String[] args) {

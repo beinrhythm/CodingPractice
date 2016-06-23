@@ -19,9 +19,9 @@ class TimeTravelingHashMap<K, V> {
     private HashMap<K, TreeMap<Double, V>> internalMap = new HashMap<K, TreeMap<Double, V>>();
 
     void set(double time, K key, V val) {
-        // look if the key if present in the map
+        // look if the key is present in the map
         if (!internalMap.containsKey(key)) {
-            //if key if not found, insert the key with new treemap
+            //if key is not found, insert the key with new treemap
             internalMap.put(key, new TreeMap<Double, V>());
         }
         // get the treemap related to that key and append the latest time with the value

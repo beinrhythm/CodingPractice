@@ -7,7 +7,8 @@ package com.practice.codingInterview.arraysAndStrings;
  */
 public class LookAndSay {
     public static void main(String[] args) {
-        System.out.println((lookAndSay(7)));
+
+      System.out.println((lookAndSay(7)));
     }
 
     public static String lookAndSay(int num) {
